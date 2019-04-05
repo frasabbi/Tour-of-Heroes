@@ -1,0 +1,10 @@
+
+<ul>
+  <li *ngFor="let hero of heroes; let i=index">
+    <a routerLink="/detail/{{hero.id}}">   
+    <h2>{{hero.name}} Details:</h2>
+    <div >Id :{{i+1}}</div>
+    <span>Nome :{{hero.name | uppercase}}</span>
+  </a> 
+  </li>
+</ul>
