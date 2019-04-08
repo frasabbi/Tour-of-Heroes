@@ -23,10 +23,14 @@ export class HeroDetailComponent implements OnInit {
   getHero():void{
     const id= +this.route.snapshot.paramMap.get('id'); //l'operatore + converte il valore preso dalla stringa id contenuta nell'url in numero
     this.heroService.getHeroById(id)// cosicchè poi noi tramite l'id preso dalla riga 24 possiamo prendere l'eroe con quell'id
-        .subscribe(param=>this.hero=param);//tramite richiesta asincrona
+        .subscribe(hero=>this.hero=hero);//tramite richiesta asincrona
   }
   
   goBack():void{
     this.location.back();
+  }
+  save():void{
+    this.heroService.updateHero(this.hero)
+        .subscribe(()=>this.goBack());
   }
 }
